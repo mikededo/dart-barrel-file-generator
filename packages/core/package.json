@@ -8,6 +8,11 @@
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "test:cov": "vitest . --coverage",
+    "test:ui": "vitest --ui --reporter html"
+  },
   "dependencies": {
     "minimatch": "10.0.1"
   }

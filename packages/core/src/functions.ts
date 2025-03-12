@@ -1,23 +1,21 @@
 import type { GenerationConfig } from './types.js';
 
 import { minimatch } from 'minimatch';
-import { readdirSync } from 'node:fs';
-import { posix, sep } from 'node:path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 import { FILE_REGEX } from './constants.js';
-
-const path = { posix, sep };
 
 type PosixPath = string;
 
 /**
  * Converts a path to a generic `PosixPath`
  *
- * @param pathLike Path location
+ * @param pathname Path location
  * @returns An equal location with posix separators
  */
-export const toPosixPath = (pathLike: string): PosixPath =>
-  pathLike.split(path.sep).join(path.posix.sep);
+export const toPosixPath = (pathname: string): PosixPath =>
+  pathname.split(path.sep).join(path.posix.sep);
 
 export const formatDate = (date: Date = new Date()) =>
   date.toISOString().replace(/T/, ' ').replace(/\..+/, '');
@@ -36,11 +34,11 @@ export const isTargetLibFolder = (targetPath: string) => {
 /**
  * Converts a `PosixPath` to a OS specific path
  *
- * @param posixPath Current path
+ * @param pathname Current path
  * @returns A location path with os specific separators
  */
-export const toOsSpecificPath = (posixPath: PosixPath) =>
-  posixPath.split(path.posix.sep).join(path.sep);
+export const toOsSpecificPath = (pathname: PosixPath) =>
+  pathname.split(path.posix.sep).join(path.sep);
 
 /**
  * Checks if a file is a dart file
@@ -136,7 +134,7 @@ export const getFilesAndDirsFromPath = (
   const files: string[] = [];
   const dirs = new Set<string>();
 
-  for (const curr of readdirSync(path, { withFileTypes: true })) {
+  for (const curr of fs.readdirSync(path, { withFileTypes: true })) {
     const fullPath = `${path}/${curr.name}`;
     if (curr.isFile()) {
       if (shouldExport(curr.name, fullPath, barrel, config)) {
