@@ -19,10 +19,8 @@
     "url": "https://www.github.com/mikededo/dart-barrel-file-generator/issues"
   },
   "scripts": {
-    "build": "bun run build:core && bun run build:vscode",
-    "build:core": "vite build --config ./packages/core/vite.config.ts",
-    "build:vscode": "vite build --config ./packages/vscode/vite.config.ts",
-    "dev:vscode": "vite build --watch --config ./packages/vscode/vite.config.ts",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "test": "turbo run test",

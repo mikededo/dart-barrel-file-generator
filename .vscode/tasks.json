@@ -4,12 +4,34 @@
     {
       "type": "shell",
       "command": "bun",
-      "args": ["build:vscode"],
+      "args": ["run", "dev", "--filter=@dbf/vscode"],
       "label": "build",
       "presentation": {
         "clear": true,
-        "echo": true
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
       },
+      "isBackground": true,
+      "problemMatcher": [
+        {
+          "pattern": [
+            {
+              "regexp": "build started...",
+              "file": 1,
+              "line": 2,
+              "column": 3,
+              "message": 4
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "watching for file changes...",
+            "endsPattern": "built in \\d+ms."
+          }
+        }
+      ],
       "group": {
         "kind": "build",
         "isDefault": true
