@@ -3,6 +3,7 @@
   "name": "dbf",
   "displayName": "Dart Barrel File Generator",
   "private": true,
+  "packageManager": "bun@1.2.2",
   "description": "Visual studio code to generate barrel files for the Dart language.",
   "author": {
     "name": "Miquel de Domingo i Giralt",
@@ -23,7 +24,9 @@
     "build:vscode": "vite build --config ./packages/vscode/vite.config.ts",
     "dev:vscode": "vite build --watch --config ./packages/vscode/vite.config.ts",
     "lint": "eslint . --max-warnings 0",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "turbo run test",
+    "test:ci": "turbo run test -- --watch false"
   },
   "devDependencies": {
     "@antfu/eslint-config": "4.3.0",
@@ -39,6 +42,7 @@
     "eslint-plugin-perfectionist": "4.9.0",
     "husky": "9.1.7",
     "picocolors": "1.1.1",
+    "turborepo": "0.0.1",
     "typescript": "5.7.3",
     "vite": "6.2.0",
     "vitest": "3.0.8"

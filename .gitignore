@@ -3,7 +3,12 @@ node_modules
 .vscode-test/
 dist/
 *.vsix
+.turbo
 
 .env
 .DS_Store
 yarn.lock
+
+# Tests
+html
+coverage

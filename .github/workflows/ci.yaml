@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install deps
+        run: bun install --frozen-lockfile
+      - name: Lint
+        run: bun lint
+      - name: Test
+        run: bun run test:ci
+      - name: Test build
+        run: bun run build
