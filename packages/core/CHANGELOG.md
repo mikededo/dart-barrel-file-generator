@@ -1,5 +1,11 @@
 # @dbf/core
 
+## 2.1.0
+
+### Minor Changes
+
+- Validate `workspace` folders in `vscode` package as it's specific feature ([#121](https://github.com/mikededo/dart-barrel-file-generator/pull/121))
+
 ## 2.0.2
 
 ### Patch Changes

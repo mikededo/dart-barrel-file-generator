@@ -1,5 +1,14 @@
 # @dbf/vscode
 
+## 7.2.3
+
+### Patch Changes
+
+- Validate `workspace` folders in `vscode` package as it's specific feature ([#121](https://github.com/mikededo/dart-barrel-file-generator/pull/121))
+
+- Updated dependencies [[`9e574db`](https://github.com/mikededo/dart-barrel-file-generator/commit/9e574db3569dea7c8723bfce417045908fcab11e)]:
+  - @dbf/core@2.1.0
+
 ## 7.2.2
 
 ### Patch Changes
