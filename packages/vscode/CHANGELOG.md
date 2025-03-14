@@ -1,5 +1,14 @@
 # @dbf/vscode
 
+## 7.2.4
+
+### Patch Changes
+
+- Adds tests and updates build step ([#123](https://github.com/mikededo/dart-barrel-file-generator/pull/123))
+
+- Updated dependencies [[`cf0073e`](https://github.com/mikededo/dart-barrel-file-generator/commit/cf0073e579e51a9dd31f50369dcf9ad616bc1c6f)]:
+  - @dbf/core@2.2.0
+
 ## 7.2.3
 
 ### Patch Changes

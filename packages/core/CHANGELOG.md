@@ -1,5 +1,11 @@
 # @dbf/core
 
+## 2.2.0
+
+### Minor Changes
+
+- Adds tests and updates build step ([#123](https://github.com/mikededo/dart-barrel-file-generator/pull/123))
+
 ## 2.1.0
 
 ### Minor Changes
