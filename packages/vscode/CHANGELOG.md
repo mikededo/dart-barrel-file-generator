@@ -1,5 +1,11 @@
 # @dbf/vscode
 
+## 7.3.0
+
+### Minor Changes
+
+- Reverts build configuration changes ([`90bea99`](https://github.com/mikededo/dart-barrel-file-generator/commit/90bea99967c917ce2efde149fc1b2d764f657e09))
+
 ## 7.2.4
 
 ### Patch Changes
