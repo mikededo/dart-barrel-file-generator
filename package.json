@@ -40,6 +40,7 @@
     "eslint-plugin-perfectionist": "4.9.0",
     "husky": "9.1.7",
     "picocolors": "1.1.1",
+    "turbo": "2.4.4",
     "turborepo": "0.0.1",
     "typescript": "5.7.3",
     "vite": "6.2.0",
