@@ -50,12 +50,16 @@ export const init = async (uri: Uri, type: GenerationType) => {
     throw new Error('The workspace has no folders');
   }
 
+  const workspaceDir = toPosixPath(workspace.workspaceFolders[0].uri.fsPath);
+  if (!toPosixPath(uri.fsPath).includes(workspaceDir)) {
+    throw new Error('Select a folder from the workspace');
+  }
+
   try {
     const result = await Context.start({
       fsPath: uri.fsPath,
       path: uri.path,
-      type,
-      workspace: toPosixPath(workspace.workspaceFolders[0].uri.fsPath)
+      type
     });
 
     if (result) {

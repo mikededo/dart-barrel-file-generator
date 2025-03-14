@@ -5,14 +5,13 @@ import type {
   Maybe
 } from './types.js';
 
-import { writeFile } from 'node:fs';
+import { lstatSync, writeFile } from 'node:fs';
 
 import {
   fileSort,
   formatDate,
   getAllFilesFromSubfolders,
   getFilesAndDirsFromPath,
-  hasFolders,
   isTargetLibFolder,
   toOsSpecificPath,
   toPosixPath
@@ -26,7 +25,6 @@ type StartParams = {
   fsPath: string;
   path: string;
   type: GenerationType;
-  workspace: string;
 };
 type State = {
   fsPath: string;
@@ -93,6 +91,7 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
 
       writeFile(path, exports, 'utf8', (error) => {
         if (error) {
+          logger.log(error as any);
           throw new Error(error.message);
         }
 
@@ -173,25 +172,16 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
     return writeBarrelFile(targetPath, barrelFileName, files.sort(fileSort));
   };
 
-  const validateAndGenerate = async (workspace: string): Promise<Maybe<string>> => {
-    try {
-      if (!hasFolders(workspace)) {
-        logger.error('The workspace has no folders');
-        return;
-      }
-
-      const currDir = toPosixPath(workspace);
-      if (!state.path.includes(currDir)) {
-        throw new Error('Select a folder from the workspace');
-      }
-
-      return generate(toPosixPath(state.fsPath));
-    } catch {
-      logger.error('Error validating the generation');
+  const validateAndGenerate = async (): Promise<Maybe<string>> => {
+    const dir = toPosixPath(state.fsPath);
+    if (!lstatSync(dir).isDirectory()) {
+      throw new Error('Select a folder from the workspace');
     }
+
+    return generate(dir);
   };
 
-  const start = ({ fsPath, path, type, workspace }: StartParams) => {
+  const start = ({ fsPath, path, type }: StartParams) => {
     const ts = new Date();
     state.startTimestamp = ts.getTime();
 
@@ -204,7 +194,7 @@ export const createContext = ({ config, logger }: CreateContextOptions) => {
       `[${formatDate()}] Type: ${type.toLowerCase()} - Path: ${fsPath}`
     );
 
-    return validateAndGenerate(workspace);
+    return validateAndGenerate();
   };
 
   return {

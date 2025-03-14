@@ -1,8 +1,8 @@
 import type { GenerationConfig } from './types.js';
 
 import { minimatch } from 'minimatch';
-import { readdirSync, statSync } from 'node:fs';
-import { join, posix, sep } from 'node:path';
+import { readdirSync } from 'node:fs';
+import { posix, sep } from 'node:path';
 
 import { FILE_REGEX } from './constants.js';
 
@@ -76,9 +76,6 @@ export const matchesGlob = (fileName: string, glob: string) =>
  */
 export const fileSort = (a: string, b: string): number =>
   a < b ? -1 : a > b ? 1 : 0;
-
-export const hasFolders = (path: string) =>
-  readdirSync(path).some(item => statSync(join(path, item)).isDirectory());
 
 /**
  * Checks if the given `posixPath` is a dart file, it has a different
