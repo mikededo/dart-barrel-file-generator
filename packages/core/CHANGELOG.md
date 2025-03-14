@@ -1,5 +1,11 @@
 # @dbf/core
 
+## 2.0.2
+
+### Patch Changes
+
+- Use `fsPath` for generation ([`0ec29d2`](https://github.com/mikededo/dart-barrel-file-generator/commit/0ec29d2408e11e4c94860cdd3d971ade7b3bc4ea))
+
 ## 2.0.1
 
 ### Patch Changes

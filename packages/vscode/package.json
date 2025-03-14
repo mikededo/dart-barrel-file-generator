@@ -2,7 +2,7 @@
   "publisher": "miquelddg",
   "name": "@dbf/vscode",
   "displayName": "Dart Barrel File Generator",
-  "version": "7.2.1",
+  "version": "7.2.2",
   "private": true,
   "description": "Visual studio code to generate barrel files for the Dart language.",
   "author": {
