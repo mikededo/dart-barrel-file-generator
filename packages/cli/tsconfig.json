@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "types": ["vitest/globals"],
+    "outDir": "./dist",
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*", "test/**/*"]
+}

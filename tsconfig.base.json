@@ -6,9 +6,9 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "strict": true,
-    "declaration": true,
+    "strictNullChecks": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "skipDefaultLibCheck": true,
     "skipLibCheck": true
   }
 }

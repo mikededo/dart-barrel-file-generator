@@ -1,0 +1,268 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dbf-cli > --recursive > /dbf-cli/lib --prepend-package 1`] = `
+"export 'package:dbf-cli/component.dart';
+export 'package:dbf-cli/main.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src --excluded-files main.dart 1`] = `
+"export 'components/components.dart';
+export 'main.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src 1`] = `
+"export 'components/components.dart';
+export 'main.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src/components --append-folder-name 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/nested_nested.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src/components --exclude-freezed 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'nested/nested.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src/components --exclude-generated 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/nested.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src/components --prepend-folder-name 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/nested_nested.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src/components -n out 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/out.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src/components 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/nested.dart';
+"
+`;
+
+exports[`dbf-cli > --recursive > /dbf-cli/src/components/nested 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/lib --prepend-package 1`] = `
+"export 'package:dbf-cli/component.dart';
+export 'package:dbf-cli/main.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src --excluded-files main.dart 1`] = `
+"export 'main.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src 1`] = `
+"export 'main.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src/components --append-folder-name 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src/components --exclude-freezed 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src/components --exclude-generated 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src/components --prepend-folder-name 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src/components -n out 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src/components 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+"
+`;
+
+exports[`dbf-cli > --regular > /dbf-cli/src/components/nested 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/lib --prepend-package 1`] = `
+"export 'package:dbf-cli/component.dart';
+export 'package:dbf-cli/main.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src --excluded-files main.dart 1`] = `
+"export 'components/component_one.dart';
+export 'components/component_three.dart';
+export 'components/component_three.g.dart';
+export 'components/component_two.dart';
+export 'components/component_two.freezed.dart';
+export 'components/nested/component_one.dart';
+export 'components/nested/component_three.dart';
+export 'components/nested/component_two.dart';
+export 'main.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src 1`] = `
+"export 'components/component_one.dart';
+export 'components/component_three.dart';
+export 'components/component_three.g.dart';
+export 'components/component_two.dart';
+export 'components/component_two.freezed.dart';
+export 'components/nested/component_one.dart';
+export 'components/nested/component_three.dart';
+export 'components/nested/component_two.dart';
+export 'main.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src/components --append-folder-name 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/component_one.dart';
+export 'nested/component_three.dart';
+export 'nested/component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src/components --exclude-freezed 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'nested/component_one.dart';
+export 'nested/component_three.dart';
+export 'nested/component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src/components --exclude-generated 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/component_one.dart';
+export 'nested/component_three.dart';
+export 'nested/component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src/components --prepend-folder-name 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/component_one.dart';
+export 'nested/component_three.dart';
+export 'nested/component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src/components -n out 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/component_one.dart';
+export 'nested/component_three.dart';
+export 'nested/component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src/components 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_three.g.dart';
+export 'component_two.dart';
+export 'component_two.freezed.dart';
+export 'nested/component_one.dart';
+export 'nested/component_three.dart';
+export 'nested/component_two.dart';
+"
+`;
+
+exports[`dbf-cli > --subfolders > /dbf-cli/src/components/nested 1`] = `
+"export 'component_one.dart';
+export 'component_three.dart';
+export 'component_two.dart';
+"
+`;

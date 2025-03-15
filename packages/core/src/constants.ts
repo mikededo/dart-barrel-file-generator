@@ -1,12 +1,3 @@
-import type { FocusedGenerations, RegularGenerations } from './types.js';
-
-export const FOCUSED_TO_REGULAR: Record<
-  FocusedGenerations,
-  RegularGenerations
-> = {
-  REGULAR_FOCUSED: 'REGULAR'
-};
-
 export const FILE_REGEX = {
   /**
    * Returns a regex that will match if the filename has
