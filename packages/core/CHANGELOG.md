@@ -1,5 +1,11 @@
 # @dbf/core
 
+## 2.2.1-next.0
+
+### Patch Changes
+
+- Initial implementation of the `@dbf/cli` app ([#126](https://github.com/mikededo/dart-barrel-file-generator/pull/126))
+
 ## 2.2.0
 
 ### Minor Changes

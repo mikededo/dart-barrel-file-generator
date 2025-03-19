@@ -6,5 +6,7 @@
     "@dbf/core": "2.2.0",
     "@dbf/vscode": "7.3.0"
   },
-  "changesets": []
+  "changesets": [
+    "rare-horses-dream"
+  ]
 }
