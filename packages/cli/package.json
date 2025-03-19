@@ -2,9 +2,14 @@
   "name": "@dbf/cli",
   "type": "module",
   "version": "0.0.0",
+  "private": false,
   "description": "CLI to generate Dart barrel files",
-  "bin": "./dist/bin.js",
+  "bin": "./dist/bin.cjs",
+  "engines": {
+    "node": "^20.0.0 || >=22.0.0"
+  },
   "scripts": {
+    "build": "vite build",
     "dev": "vite-node src/bin.ts",
     "test": "vitest"
   },
@@ -15,6 +20,7 @@
     "valibot": "1.0.0-rc.2"
   },
   "devDependencies": {
+    "rollup-plugin-node-externals": "8.0.0",
     "vite-node": "3.0.8"
   }
 }
