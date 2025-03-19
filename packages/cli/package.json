@@ -5,7 +5,6 @@
   "description": "CLI to generate Dart barrel files",
   "bin": "./dist/bin.js",
   "scripts": {
-    "build": "vite-node src/bin.ts",
     "dev": "vite-node src/bin.ts",
     "test": "vitest"
   },
