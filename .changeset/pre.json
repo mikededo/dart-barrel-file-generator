@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@dbf/cli": "0.0.0",
+    "@dbf/core": "2.2.0",
+    "@dbf/vscode": "7.3.0"
+  },
+  "changesets": []
+}
