@@ -1,27 +1,26 @@
 import { resolve } from 'node:path';
+import { nodeExternals } from 'rollup-plugin-node-externals';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      fileName: 'index',
-      formats: ['es']
+      entry: ['src/bin.ts'],
+      formats: ['cjs']
     },
+    minify: false,
     outDir: 'dist',
-    rollupOptions: {
-      external: [
-        'commander',
-        'valibot',
-        'node:fs',
-        'node:path'
-      ]
-    },
+    sourcemap: true,
+    ssr: true,
     target: 'node20'
   },
+  plugins: [
+    nodeExternals()
+  ],
   resolve: {
     alias: {
       '@dbf/core': resolve(__dirname, '../core/src')
     }
-  }
+  },
+  ssr: { noExternal: true }
 });
