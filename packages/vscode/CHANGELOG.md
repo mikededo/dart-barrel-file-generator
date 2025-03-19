@@ -1,5 +1,11 @@
 # @dbf/vscode
 
+## 7.3.1
+
+### Patch Changes
+
+- Update scripts ([`af33028`](https://github.com/mikededo/dart-barrel-file-generator/commit/af33028c547c470d83ba0c00da608321136b3f83))
+
 ## 7.3.0
 
 ### Minor Changes
