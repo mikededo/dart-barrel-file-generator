@@ -1,5 +1,11 @@
 # @dbfg/cli
 
+## 1.0.2
+
+### Patch Changes
+
+- Update build ([`8ce92ad`](https://github.com/mikededo/dart-barrel-file-generator/commit/8ce92adc60d7f9987504cc2c3063485e48f878db))
+
 ## 1.0.1
 
 ### Patch Changes
