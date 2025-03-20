@@ -1,5 +1,11 @@
 # @dbfg/core
 
+## 2.2.1
+
+### Patch Changes
+
+- Change package scope ([`4ea5d3d`](https://github.com/mikededo/dart-barrel-file-generator/commit/4ea5d3db75e62de4a4ef4dd478d0d4bc94e859f8))
+
 ## 2.2.0
 
 ### Minor Changes
