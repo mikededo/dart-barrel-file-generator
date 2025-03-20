@@ -1,5 +1,15 @@
 # @dbfg/cli
 
+## 1.1.0
+
+### Minor Changes
+
+- Add named executable ([`d02321a`](https://github.com/mikededo/dart-barrel-file-generator/commit/d02321a247bd063b9899081b422fd6496a31abf2))
+
+### Patch Changes
+
+- Add docs ([`d02321a`](https://github.com/mikededo/dart-barrel-file-generator/commit/d02321a247bd063b9899081b422fd6496a31abf2))
+
 ## 1.0.2
 
 ### Patch Changes
