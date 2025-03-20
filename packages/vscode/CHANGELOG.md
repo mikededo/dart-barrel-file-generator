@@ -1,5 +1,11 @@
 # @dbfg/vscode
 
+## 7.3.3
+
+### Patch Changes
+
+- Correct package script ([`1509748`](https://github.com/mikededo/dart-barrel-file-generator/commit/150974869b2fb50e11ff9cbf15472228905fb314))
+
 ## 7.3.2
 
 ### Patch Changes
