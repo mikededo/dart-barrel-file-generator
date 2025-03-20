@@ -1,6 +1,6 @@
 {
   "publisher": "miquelddg",
-  "name": "@dbf/vscode",
+  "name": "@dbfg/vscode",
   "displayName": "Dart Barrel File Generator",
   "version": "7.3.1",
   "private": true,
@@ -153,7 +153,7 @@
     "publish": "bun vsce publish --packagePath ./extension.vsix --skip-license --skip-duplicate"
   },
   "dependencies": {
-    "@dbf/core": "workspace:*"
+    "@dbfg/core": "workspace:*"
   },
   "devDependencies": {
     "@types/vscode": "1.97.0",

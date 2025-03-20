@@ -25,12 +25,12 @@
       },
     },
     "packages/cli": {
-      "name": "@dbf/cli",
+      "name": "@dbfg/cli",
       "version": "0.0.0",
-      "bin": "./dist/bin.js",
+      "bin": "./dist/bin.cjs",
       "dependencies": {
         "@commander-js/extra-typings": "13.1.0",
-        "@dbf/core": "workspace:*",
+        "@dbfg/core": "workspace:*",
         "commander": "13.1.0",
         "valibot": "1.0.0-rc.2",
       },
@@ -40,17 +40,17 @@
       },
     },
     "packages/core": {
-      "name": "@dbf/core",
+      "name": "@dbfg/core",
       "version": "2.2.0",
       "dependencies": {
         "minimatch": "10.0.1",
       },
     },
     "packages/vscode": {
-      "name": "@dbf/vscode",
-      "version": "7.3.0",
+      "name": "@dbfg/vscode",
+      "version": "7.3.1",
       "dependencies": {
-        "@dbf/core": "workspace:*",
+        "@dbfg/core": "workspace:*",
       },
       "devDependencies": {
         "@types/vscode": "1.97.0",
@@ -143,11 +143,11 @@
 
     "@commander-js/extra-typings": ["@commander-js/extra-typings@13.1.0", "", { "peerDependencies": { "commander": "~13.1.0" } }, "sha512-q5P52BYb1hwVWE6dtID7VvuJWrlfbCv4klj7BjUUOqMz4jbSZD4C9fJ9lRjL2jnBGTg+gDDlaXN51rkWcLk4fg=="],
 
-    "@dbf/cli": ["@dbf/cli@workspace:packages/cli"],
+    "@dbfg/cli": ["@dbfg/cli@workspace:packages/cli"],
 
-    "@dbf/core": ["@dbf/core@workspace:packages/core"],
+    "@dbfg/core": ["@dbfg/core@workspace:packages/core"],
 
-    "@dbf/vscode": ["@dbf/vscode@workspace:packages/vscode"],
+    "@dbfg/vscode": ["@dbfg/vscode@workspace:packages/vscode"],
 
     "@dprint/formatter": ["@dprint/formatter@0.3.0", "", {}, "sha512-N9fxCxbaBOrDkteSOzaCqwWjso5iAe+WJPsHC021JfHNj2ThInPNEF13ORDKta3llq5D1TlclODCvOvipH7bWQ=="],
 

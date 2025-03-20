@@ -1,5 +1,5 @@
 {
-  "name": "@dbf/cli",
+  "name": "@dbfg/cli",
   "type": "module",
   "version": "1.0.0",
   "private": false,
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@commander-js/extra-typings": "13.1.0",
-    "@dbf/core": "workspace:*",
+    "@dbfg/core": "workspace:*",
     "commander": "13.1.0",
     "valibot": "1.0.0-rc.2"
   },
