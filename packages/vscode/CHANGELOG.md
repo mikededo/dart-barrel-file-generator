@@ -1,5 +1,14 @@
 # @dbf/vscode
 
+## 7.3.2
+
+### Patch Changes
+
+- Change package scope ([`bc8eeb7`](https://github.com/mikededo/dart-barrel-file-generator/commit/bc8eeb7107a78f77722211856c846c60501e2c81))
+
+- Updated dependencies [[`bc8eeb7`](https://github.com/mikededo/dart-barrel-file-generator/commit/bc8eeb7107a78f77722211856c846c60501e2c81)]:
+  - @dbfg/core@2.2.1
+
 ## 7.3.1
 
 ### Patch Changes
