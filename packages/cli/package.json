@@ -1,7 +1,7 @@
 {
   "name": "@dbf/cli",
   "type": "module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": false,
   "description": "CLI to generate Dart barrel files",
   "bin": "./dist/bin.cjs",
