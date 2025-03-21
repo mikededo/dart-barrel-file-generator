@@ -1,11 +1,13 @@
 import type {
   GenerationConfig,
   GenerationLogger,
-  GenerationType,
-  Maybe
+  GenerationType
 } from './types.js';
 
-import { lstatSync, writeFile } from 'node:fs';
+import type { Result } from 'neverthrow';
+import { err, errAsync, ok, ResultAsync } from 'neverthrow';
+import { lstatSync } from 'node:fs';
+import { writeFile } from 'node:fs/promises';
 
 import {
   fileSort,
@@ -53,22 +55,24 @@ export const createContext = ({ config, logger, options = DEFAULT_OPTIONS }: Cre
     logger.log(parseLogString('Generation finished'));
   };
 
-  const definedOrError = (value: keyof State) => {
+  const definedOrError = <T extends keyof State>(value: T): Result<State[T], Error> => {
     if (!state[value]) {
-      throw new Error(`Cannot access ${value} in context. Did you initialise the context?`);
+      return err(
+        new Error(`Cannot access ${value} in context. Did you initialise the context?`)
+      );
     }
 
-    return state[value];
+    return ok(state[value]);
   };
 
   const getPackageName = () => {
     if (!state.path || !state.fsPath) {
-      throw new Error('Context.packageName called when no active path');
+      return err(new Error('Context.packageName called when no active path'));
     }
 
     const parts = toPosixPath(state.fsPath).split('/lib');
     const path = parts[0].split('/');
-    return path[path.length - 1];
+    return ok(`package:${path[path.length - 1]}/`);
   };
 
   /**
@@ -82,34 +86,34 @@ export const createContext = ({ config, logger, options = DEFAULT_OPTIONS }: Cre
     targetPath: string,
     dirName: string,
     files: string[]
-  ): Promise<string> => {
+  ): ResultAsync<string, Error> => {
     let exports = '';
     // Check if we should prepend the package
     const shouldPrependPackage = config.prependPackageToLibExport && isTargetLibFolder(targetPath);
-    const prependPackageValue = shouldPrependPackage
-      ? `package:${getPackageName()}/`
-      : '';
+    const prependPackage = shouldPrependPackage ? getPackageName() : ok('');
+    if (prependPackage.isErr()) {
+      return errAsync(prependPackage.error);
+    }
 
     for (const file of files) {
-      exports = `${exports}export '${prependPackageValue}${file}';\n`;
+      exports = `${exports}export '${prependPackage.value}${file}';\n`;
     }
 
     logger.log(parseLogString(`Exporting ${targetPath} - found ${files.length} Dart files`));
     const barrelFile = `${targetPath}/${dirName}.dart`;
+    const path = toOsSpecificPath(barrelFile);
 
-    return new Promise((resolve) => {
-      const path = toOsSpecificPath(barrelFile);
-
-      writeFile(path, exports, 'utf8', (error) => {
-        if (error) {
-          logger.log(error as any);
-          throw new Error(error.message);
-        }
-
-        logger.log(parseLogString(`Generated successfull barrel file at ${path}`));
-        resolve(path);
-      });
-    });
+    return ResultAsync.fromPromise(
+      writeFile(path, exports, 'utf8')
+        .then(() => {
+          logger.log(parseLogString(`Generated successfull barrel file at ${path}`));
+          return path;
+        }),
+      (error: unknown) => {
+        logger.log(error as any);
+        return error instanceof Error ? error : new Error(String(error));
+      }
+    );
   };
 
   /**
@@ -141,7 +145,7 @@ export const createContext = ({ config, logger, options = DEFAULT_OPTIONS }: Cre
    * @param targetPath The target path of the barrel file
    * @returns A promise with the path of the written barrel file
    */
-  const generate = async (targetPath: string): Promise<Maybe<string>> => {
+  const generate = async (targetPath: string) => {
     const skipEmpty = config.skipEmpty;
     const barrelFileName = getBarrelFile(targetPath);
 
@@ -153,7 +157,7 @@ export const createContext = ({ config, logger, options = DEFAULT_OPTIONS }: Cre
       ).sort(fileSort);
 
       if (files.length === 0 && skipEmpty) {
-        return Promise.resolve(undefined);
+        return Promise.resolve(ok(''));
       }
 
       return writeBarrelFile(targetPath, barrelFileName, files);
@@ -163,28 +167,33 @@ export const createContext = ({ config, logger, options = DEFAULT_OPTIONS }: Cre
     if (state.type === 'RECURSIVE' && dirs.size > 0) {
       for (const d of dirs) {
         const maybeGenerated = await generate(`${targetPath}/${d}`);
-        if (!maybeGenerated && skipEmpty) {
+        if (maybeGenerated.isErr()) {
+          logger.error(maybeGenerated.error.message);
+          continue;
+        }
+
+        if (!maybeGenerated.value && skipEmpty) {
           continue;
         }
 
         files.push(
-          toPosixPath(maybeGenerated as string).split(`${targetPath}/`)[1]
+          toPosixPath(maybeGenerated.value).split(`${targetPath}/`)[1]
         );
       }
     }
 
     if (files.length === 0 && skipEmpty) {
-      return Promise.resolve(undefined);
+      return Promise.resolve(ok(''));
     }
 
     // Sort files
     return writeBarrelFile(targetPath, barrelFileName, files.sort(fileSort));
   };
 
-  const validateAndGenerate = async (): Promise<Maybe<string>> => {
+  const validateAndGenerate = async () => {
     const dir = toPosixPath(state.fsPath);
     if (!lstatSync(dir).isDirectory()) {
-      throw new Error('Select a folder from the workspace');
+      return err(new Error('Select a folder from the workspace'));
     }
 
     return generate(dir);

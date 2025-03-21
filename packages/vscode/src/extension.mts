@@ -55,26 +55,27 @@ export const init = async (uri: Uri, type: GenerationType) => {
     throw new Error('Select a folder from the workspace');
   }
 
-  try {
-    const result = await Context.start({
-      fsPath: uri.fsPath,
-      path: uri.path,
-      type
-    });
+  const result = await Context.start({
+    fsPath: uri.fsPath,
+    path: uri.path,
+    type
+  });
 
-    if (result) {
-      await window.showInformationMessage('GDBF: Generated files!', result);
-    } else {
-      await window.showInformationMessage('GDBF: No dart barrel file has been generated!');
-    }
-
-    Context.endGeneration();
-  } catch (error: any) {
-    Context.onError(error);
+  if (result.isErr()) {
+    Context.onError(result.error.message);
     Context.endGeneration();
 
-    window.showErrorMessage('GDBF: Error on generating the file', error);
+    window.showErrorMessage('GDBF: Error on generating the file', result.error.message);
+    return;
   }
+
+  if (result.value) {
+    await window.showInformationMessage('GDBF: Generated files!', result.value);
+  } else {
+    await window.showInformationMessage('GDBF: No dart barrel file has been generated!');
+  }
+
+  Context.endGeneration();
 };
 
 export const deactivate = () => {

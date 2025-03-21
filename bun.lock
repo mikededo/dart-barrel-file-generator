@@ -16,6 +16,7 @@
         "eslint-plugin-format": "1.0.1",
         "eslint-plugin-perfectionist": "4.9.0",
         "husky": "9.1.7",
+        "neverthrow": "8.2.0",
         "picocolors": "1.1.1",
         "typescript": "5.7.3",
         "vite": "6.2.0",
@@ -24,7 +25,7 @@
     },
     "packages/cli": {
       "name": "@dbfg/cli",
-      "version": "1.0.2",
+      "version": "1.1.1",
       "bin": "./dist/bin.cjs",
       "dependencies": {
         "@commander-js/extra-typings": "13.1.0",
@@ -39,14 +40,14 @@
     },
     "packages/core": {
       "name": "@dbfg/core",
-      "version": "2.2.1",
+      "version": "2.3.0",
       "dependencies": {
         "minimatch": "10.0.1",
       },
     },
     "packages/vscode": {
       "name": "@dbfg/vscode",
-      "version": "7.3.3",
+      "version": "7.3.4",
       "dependencies": {
         "@dbfg/core": "workspace:*",
       },
@@ -1006,6 +1007,8 @@
     "natural-compare": ["natural-compare@1.4.0", "", {}, "sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw=="],
 
     "natural-orderby": ["natural-orderby@5.0.0", "", {}, "sha512-kKHJhxwpR/Okycz4HhQKKlhWe4ASEfPgkSWNmKFHd7+ezuQlxkA5cM3+XkBPvm1gmHen3w53qsYAv+8GwRrBlg=="],
+
+    "neverthrow": ["neverthrow@8.2.0", "", { "optionalDependencies": { "@rollup/rollup-linux-x64-gnu": "^4.24.0" } }, "sha512-kOCT/1MCPAxY5iUV3wytNFUMUolzuwd/VF/1KCx7kf6CutrOsTie+84zTGTpgQycjvfLdBBdvBvFLqFD2c0wkQ=="],
 
     "node-abi": ["node-abi@3.74.0", "", { "dependencies": { "semver": "^7.3.5" } }, "sha512-c5XK0MjkGBrQPGYG24GBADZud0NCbznxNx0ZkS+ebUTrmV1qTDxPxSL8zEAPURXSbLRWVexxmP4986BziahL5w=="],
 

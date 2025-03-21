@@ -57,7 +57,6 @@ dbfg-cli --subfolders <directory>
 -r, --recursive                   Generate barrel files recursively for all nested directories
 -c, --config <string>             Path to configuration file
 -n, --default-barrel-name <name>  Default name for barrel files (default: "")
--q, --quiet                       Hide all logs (default: false)
 --excluded-dirs <dirs...>         Comma-separated list of directories to exclude (default: [])
 --excluded-files <files...>       Comma-separated list of files to exclude (default: [])
 --exclude-freezed                 Exclude freezed files (default: false)

@@ -4,7 +4,9 @@
 import type { GenerationType } from '@dbfg/core';
 
 import { program } from '@commander-js/extra-typings';
+import { ok, ResultAsync } from 'neverthrow';
 import fs from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import pc from 'picocolors';
 import type { InferInput } from 'valibot';
@@ -67,29 +69,28 @@ const run = async (directory: string, type: GenerationType, config: InferInput<t
     }
   });
 
-  try {
-    const result = await Context.start({
-      fsPath: directory,
-      path: toPosixPath(directory),
-      type
-    });
-
-    Context.endGeneration();
-    return result;
-  } catch (error: any) {
+  const result = await Context.start({
+    fsPath: directory,
+    path: toPosixPath(directory),
+    type
+  });
+  if (result.isErr()) {
     Context.onError(error);
     Context.endGeneration();
-    throw error;
+  } else {
+    Context.endGeneration();
   }
+
+  return result;
 };
 
-const loadConfigFile = async (configPath: string) => {
-  try {
-    const parsed = JSON.parse(await fs.promises.readFile(configPath, 'utf8'));
-    return { ...DEFAULT_CONFIG, ...parsed };
-  } catch (error) {
-    throw new Error(`Failed to load configuration file: ${error}`);
-  }
+const loadConfigFile = (configPath: string): ResultAsync<object, Error> => {
+  return ResultAsync.fromPromise(
+    readFile(configPath, 'utf8')
+      .then(content => JSON.parse(content))
+      .then(parsed => ({ ...DEFAULT_CONFIG, ...parsed })),
+    error => new Error(`Failed to load configuration file: ${error}`)
+  );
 };
 
 program
@@ -113,7 +114,13 @@ program
   .option('--prepend-folder-name', 'Prepend folder name to barrel file name', false)
   .option('--prepend-package', 'Prepend package name to exports in lib folder', false)
   .action(async (directory, { config, quiet, recursive, subfolders, ...opts }) => {
-    const configFile = v.parse(ConfigPath, config);
+    const configFile = v.safeParse(ConfigPath, config);
+    if (!configFile.success) {
+      configFile.issues.forEach((i) => {
+        cliLogger.error(i.message);
+      });
+      process.exit(1);
+    }
     const type = recursive ? 'RECURSIVE' : subfolders ? 'REGULAR_SUBFOLDERS' : 'REGULAR';
 
     if (quiet) {
@@ -125,34 +132,47 @@ program
       });
     }
 
-    try {
-      const dir = v.parse(Directory, directory);
-      const resolvedPath = path.resolve(dir);
+    const dir = v.parse(Directory, directory);
+    const resolvedPath = path.resolve(dir);
 
-      if (!fs.existsSync(resolvedPath)) {
-        cliLogger.error(`Error: Directory does not exist: ${resolvedPath}`);
-        process.exit(1);
-      }
-
-      const { excludedDirs, excludedFiles, prependPackage, ...rest } = opts;
-      const parsedConfig = v.parse(
-        ConfigSchema,
-        configFile
-          ? await loadConfigFile(configFile)
-          : {
-              excludeDirList: excludedDirs,
-              excludeFileList: excludedFiles,
-              prependPackageToLibExport: prependPackage,
-              ...rest
-            }
-      );
-      await run(resolvedPath, type, parsedConfig);
-
-      cliLogger.done(SUCCESS_MESSAGES[type].replace('{path}', resolvedPath));
-    } catch (error: any) {
-      cliLogger.error(`${error.message}`);
+    if (!fs.existsSync(resolvedPath)) {
+      cliLogger.error(`Error: Directory does not exist: ${resolvedPath}`);
       process.exit(1);
     }
+
+    const { excludedDirs, excludedFiles, prependPackage, ...rest } = opts;
+    const configResult = configFile.output
+      ? await loadConfigFile(configFile.output)
+      : ok({
+          excludeDirList: excludedDirs,
+          excludeFileList: excludedFiles,
+          prependPackageToLibExport: prependPackage,
+          ...rest
+        });
+
+    if (configResult.isErr()) {
+      cliLogger.error(configResult.error.message);
+      process.exit(1);
+    }
+
+    const parsedConfig = v.safeParse(ConfigSchema, configResult.value);
+    if (!parsedConfig.success) {
+      cliLogger.error(`Invalid configuration: ${parsedConfig.issues.map(i => i.message).join(', ')}`);
+      process.exit(1);
+    }
+
+    const res = await run(resolvedPath, type, parsedConfig.output);
+    const code = res.match(
+      (path) => {
+        cliLogger.done(SUCCESS_MESSAGES[type].replace('{path}', path));
+        return 0;
+      },
+      (err) => {
+        cliLogger.error(`${err.message}`);
+        return 1;
+      }
+    );
+    process.exit(code);
   });
 
 program.parse();

@@ -11,7 +11,7 @@ export default defineConfig({
     minify: false,
     outDir: resolve(__dirname, 'dist'),
     rollupOptions: {
-      external: ['vscode', 'node:fs', 'node:path']
+      external: ['vscode', 'node:fs', 'node:path', 'node:fs/promises']
     },
     sourcemap: true
   },
