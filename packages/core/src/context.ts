@@ -5,7 +5,7 @@ import type {
 } from './types.js';
 
 import type { Result } from 'neverthrow';
-import { err, errAsync, ok, ResultAsync } from 'neverthrow';
+import { err, ok, ResultAsync } from 'neverthrow';
 import { lstatSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 
@@ -66,13 +66,9 @@ export const createContext = ({ config, logger, options = DEFAULT_OPTIONS }: Cre
   };
 
   const getPackageName = () => {
-    if (!state.path || !state.fsPath) {
-      return err(new Error('Context.packageName called when no active path'));
-    }
-
     const parts = toPosixPath(state.fsPath).split('/lib');
     const path = parts[0].split('/');
-    return ok(`package:${path[path.length - 1]}/`);
+    return `package:${path[path.length - 1]}/`;
   };
 
   /**
@@ -90,13 +86,8 @@ export const createContext = ({ config, logger, options = DEFAULT_OPTIONS }: Cre
     let exports = '';
     // Check if we should prepend the package
     const shouldPrependPackage = config.prependPackageToLibExport && isTargetLibFolder(targetPath);
-    const prependPackage = shouldPrependPackage ? getPackageName() : ok('');
-    if (prependPackage.isErr()) {
-      return errAsync(prependPackage.error);
-    }
-
     for (const file of files) {
-      exports = `${exports}export '${prependPackage.value}${file}';\n`;
+      exports = `${exports}export '${shouldPrependPackage ? getPackageName() : ''}${file}';\n`;
     }
 
     logger.log(parseLogString(`Exporting ${targetPath} - found ${files.length} Dart files`));
