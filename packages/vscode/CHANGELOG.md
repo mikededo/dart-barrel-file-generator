@@ -1,5 +1,16 @@
 # @dbfg/vscode
 
+## 7.4.0
+
+### Minor Changes
+
+- Migrate to `neverthrow` ([#136](https://github.com/mikededo/dart-barrel-file-generator/pull/136))
+
+### Patch Changes
+
+- Updated dependencies [[`8ed3f9d`](https://github.com/mikededo/dart-barrel-file-generator/commit/8ed3f9d0bec24252510c774c6cec907a1165e63f)]:
+  - @dbfg/core@3.0.0
+
 ## 7.3.4
 
 ### Patch Changes

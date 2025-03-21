@@ -1,5 +1,11 @@
 # @dbfg/cli
 
+## 1.2.0
+
+### Minor Changes
+
+- Migrate to `neverthrow` ([#136](https://github.com/mikededo/dart-barrel-file-generator/pull/136))
+
 ## 1.1.1
 
 ### Patch Changes

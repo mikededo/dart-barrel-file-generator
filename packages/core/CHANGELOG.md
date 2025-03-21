@@ -1,5 +1,11 @@
 # @dbfg/core
 
+## 3.0.0
+
+### Major Changes
+
+- Migrate to `neverthrow` ([#136](https://github.com/mikededo/dart-barrel-file-generator/pull/136))
+
 ## 2.3.0
 
 ### Minor Changes
