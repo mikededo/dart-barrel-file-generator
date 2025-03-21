@@ -84,14 +84,13 @@ const run = async (directory: string, type: GenerationType, config: InferInput<t
   return result;
 };
 
-const loadConfigFile = (configPath: string): ResultAsync<object, Error> => {
-  return ResultAsync.fromPromise(
+const loadConfigFile = (configPath: string): ResultAsync<object, Error> =>
+  ResultAsync.fromPromise(
     readFile(configPath, 'utf8')
-      .then(content => JSON.parse(content))
-      .then(parsed => ({ ...DEFAULT_CONFIG, ...parsed })),
-    error => new Error(`Failed to load configuration file: ${error}`)
+      .then((content) => JSON.parse(content))
+      .then((parsed) => ({ ...DEFAULT_CONFIG, ...parsed })),
+    (error) => new Error(`Failed to load configuration file: ${error}`)
   );
-};
 
 program
   .name(packageName)
@@ -157,7 +156,7 @@ program
 
     const parsedConfig = v.safeParse(ConfigSchema, configResult.value);
     if (!parsedConfig.success) {
-      cliLogger.error(`Invalid configuration: ${parsedConfig.issues.map(i => i.message).join(', ')}`);
+      cliLogger.error(`Invalid configuration: ${parsedConfig.issues.map((i) => i.message).join(', ')}`);
       process.exit(1);
     }
 

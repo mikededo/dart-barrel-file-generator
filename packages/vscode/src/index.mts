@@ -18,7 +18,7 @@ const generate = (type: GenerationType) => async (uri: undefined | Uri) => {
     canSelectFolders: true,
     canSelectMany: false,
     openLabel: 'Select the folder '
-  }).then(uris => uris && uris[0]);
+  }).then((uris) => uris && uris[0]);
 
   if (!maybeUri) {
     return;

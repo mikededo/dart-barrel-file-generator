@@ -103,7 +103,7 @@ export const shouldExport = (
     }
 
     const globs: string[] = excludeFileList ?? [];
-    return globs.every(glob => !matchesGlob(filePath, glob));
+    return globs.every((glob) => !matchesGlob(filePath, glob));
   }
 
   return false;
@@ -117,7 +117,7 @@ export const shouldExport = (
  * exports
  */
 export const shouldExportDirectory = (posixPath: PosixPath, { excludeDirList }: GenerationConfig) =>
-  (excludeDirList ?? []).every(glob => !matchesGlob(posixPath, glob));
+  (excludeDirList ?? []).every((glob) => !matchesGlob(posixPath, glob));
 
 /**
  * Gets the list of files and a set of directories from the given path
@@ -170,7 +170,7 @@ export const getAllFilesFromSubfolders = (
   if (dirs.size > 0) {
     for (const d of dirs) {
       const folderFiles = getAllFilesFromSubfolders(barrel, `${path}/${d}`, opts);
-      resultFiles.push(...folderFiles.map(f => `${d}/${f}`));
+      resultFiles.push(...folderFiles.map((f) => `${d}/${f}`));
     }
   }
 

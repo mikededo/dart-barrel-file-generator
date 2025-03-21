@@ -44,7 +44,7 @@ vi.mock('node:path', async () => {
 });
 
 const mockReaddirSync = vi.hoisted(vi.fn<typeof fs.readdirSync>);
-vi.mock('node:fs', async importActual => ({
+vi.mock('node:fs', async (importActual) => ({
   ...(await importActual()),
   readdirSync: mockReaddirSync
 }));
