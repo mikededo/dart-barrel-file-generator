@@ -1,7 +1,7 @@
 {
   "name": "@dbfg/cli",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": false,
   "description": "CLI to generate Dart barrel files",
   "bin": {

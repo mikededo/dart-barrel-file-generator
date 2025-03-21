@@ -1,5 +1,13 @@
 # @dbfg/cli
 
+## 1.1.1
+
+### Patch Changes
+
+- Add `-q, --quiet` option ([`1bed1cf`](https://github.com/mikededo/dart-barrel-file-generator/commit/1bed1cf94a348638b5960d43f7d2f3acbeb60d0e))
+
+- Improve output logs ([`1c9d5a8`](https://github.com/mikededo/dart-barrel-file-generator/commit/1c9d5a892de3257c6bef5c35e9cc675b2026893e))
+
 ## 1.1.0
 
 ### Minor Changes
