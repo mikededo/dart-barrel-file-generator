@@ -31,7 +31,7 @@
   "icon": "assets/logo.png",
   "engines": {
     "node": ">=22",
-    "vscode": "^1.97.0"
+    "vscode": "^1.99.0"
   },
   "activationEvents": [
     "onLanguage:dart"
@@ -156,7 +156,7 @@
     "@dbfg/core": "workspace:*"
   },
   "devDependencies": {
-    "@types/vscode": "1.97.0",
-    "@vscode/vsce": "3.2.2"
+    "@types/vscode": "1.99.1",
+    "@vscode/vsce": "3.3.2"
   }
 }
