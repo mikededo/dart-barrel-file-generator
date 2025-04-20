@@ -1,5 +1,11 @@
 # @dbfg/cli
 
+## 1.2.1
+
+### Patch Changes
+
+- Dependency update ([#138](https://github.com/mikededo/dart-barrel-file-generator/pull/138))
+
 ## 1.2.0
 
 ### Minor Changes

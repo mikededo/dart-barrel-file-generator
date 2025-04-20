@@ -1,5 +1,11 @@
 # @dbfg/core
 
+## 3.0.1
+
+### Patch Changes
+
+- Dependency update ([#138](https://github.com/mikededo/dart-barrel-file-generator/pull/138))
+
 ## 3.0.0
 
 ### Major Changes
