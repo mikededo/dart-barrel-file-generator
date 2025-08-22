@@ -18,13 +18,13 @@
     "test:ui": "vitest --ui --reporter html"
   },
   "dependencies": {
-    "@commander-js/extra-typings": "13.1.0",
-    "commander": "13.1.0",
-    "valibot": "1.0.0"
+    "@commander-js/extra-typings": "14.0.0",
+    "commander": "14.0.0",
+    "valibot": "1.1.0"
   },
   "devDependencies": {
     "@dbfg/core": "workspace:*",
-    "rollup-plugin-node-externals": "8.0.0",
-    "vite-node": "3.1.1"
+    "rollup-plugin-node-externals": "8.1.0",
+    "vite-node": "3.2.4"
   }
 }

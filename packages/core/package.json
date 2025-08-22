@@ -14,6 +14,6 @@
     "test:ui": "vitest --ui --reporter html"
   },
   "dependencies": {
-    "minimatch": "10.0.1"
+    "minimatch": "10.0.3"
   }
 }
