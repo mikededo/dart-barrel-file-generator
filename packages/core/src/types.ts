@@ -1,9 +1,9 @@
 export type FocusedGenerations = 'REGULAR_FOCUSED';
 export type GenerationType = FocusedGenerations | RegularGenerations;
 export type RegularGenerations =
-  | 'RECURSIVE'
-  | 'REGULAR_SUBFOLDERS'
-  | 'REGULAR';
+  | 'RECURSIVE' |
+  'REGULAR_SUBFOLDERS' |
+  'REGULAR';
 
 export type Maybe<T> = T | undefined;
 
