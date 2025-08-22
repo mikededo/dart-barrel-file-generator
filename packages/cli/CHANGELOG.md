@@ -1,5 +1,11 @@
 # @dbfg/cli
 
+## 1.3.0
+
+### Minor Changes
+
+- chore: dump deps ([#142](https://github.com/mikededo/dart-barrel-file-generator/pull/142))
+
 ## 1.2.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @dbfg/core
 
+## 3.1.0
+
+### Minor Changes
+
+- chore: dump deps ([#142](https://github.com/mikededo/dart-barrel-file-generator/pull/142))
+
 ## 3.0.1
 
 ### Patch Changes
