@@ -1,5 +1,16 @@
 # @dbfg/vscode
 
+## 7.5.0
+
+### Minor Changes
+
+- chore: dump deps ([#142](https://github.com/mikededo/dart-barrel-file-generator/pull/142))
+
+### Patch Changes
+
+- Updated dependencies [[`0f394f4`](https://github.com/mikededo/dart-barrel-file-generator/commit/0f394f42906dd15977db2803e19f4571bde8010e)]:
+  - @dbfg/core@3.1.0
+
 ## 7.4.1
 
 ### Patch Changes
