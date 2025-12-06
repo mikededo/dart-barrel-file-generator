@@ -1,5 +1,11 @@
 # @dbfg/cli
 
+## 1.4.0
+
+### Minor Changes
+
+- Updated dependencies ([`568b791`](https://github.com/mikededo/dart-barrel-file-generator/commit/568b79165e2bdb4c2e4173b4609cadad73117cb9))
+
 ## 1.3.0
 
 ### Minor Changes
