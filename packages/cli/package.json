@@ -19,12 +19,12 @@
   },
   "dependencies": {
     "@commander-js/extra-typings": "14.0.0",
-    "commander": "14.0.0",
-    "valibot": "1.1.0"
+    "commander": "14.0.2",
+    "valibot": "1.2.0"
   },
   "devDependencies": {
     "@dbfg/core": "workspace:*",
-    "rollup-plugin-node-externals": "8.1.0",
-    "vite-node": "3.2.4"
+    "rollup-plugin-node-externals": "8.1.2",
+    "vite-node": "5.2.0"
   }
 }
