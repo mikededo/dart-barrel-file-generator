@@ -5,3 +5,4 @@ bun run --cwd packages/vscode package --ci
 
 bun changeset publish
 bun run --cwd packages/vscode publish
+bun run --cwd packages/vscode publish:cursor

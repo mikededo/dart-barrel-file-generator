@@ -150,13 +150,15 @@
     "build": "vite build",
     "dev": "vite build --watch",
     "package": "bun ./scripts/package.ts",
-    "publish": "bun vsce publish --packagePath ./extension.vsix --skip-license --skip-duplicate"
+    "publish": "bun vsce publish --packagePath ./extension.vsix --skip-license --skip-duplicate",
+    "publish:cursor": "bun ovsx publish --packagePath ./ovsx.extension.vsix --skip-duplicate"
   },
   "dependencies": {
     "@dbfg/core": "workspace:*"
   },
   "devDependencies": {
     "@types/vscode": "1.106.1",
-    "@vscode/vsce": "3.7.1"
+    "@vscode/vsce": "3.7.1",
+    "ovsx": "0.10.8"
   }
 }
