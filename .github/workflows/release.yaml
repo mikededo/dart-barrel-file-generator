@@ -36,8 +36,8 @@ jobs:
         with:
           version: bun changeset version
           publish: ./release.sh
-          commit: "chore(release): ${{env.CHANGED_PACKAGES}}"
-          title: "chore(release): ${{env.CHANGED_PACKAGES}}"
+          commit: 'chore(release): ${{env.CHANGED_PACKAGES}}'
+          title: 'chore(release): ${{env.CHANGED_PACKAGES}}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
