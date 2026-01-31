@@ -49,7 +49,7 @@
       },
     },
     "packages/vscode": {
-      "name": "dart-barrel-file-generator",
+      "name": "@dbfg/vscode",
       "version": "7.6.0",
       "dependencies": {
         "@dbfg/core": "workspace:*",
@@ -151,6 +151,8 @@
     "@dbfg/cli": ["@dbfg/cli@workspace:packages/cli"],
 
     "@dbfg/core": ["@dbfg/core@workspace:packages/core"],
+
+    "@dbfg/vscode": ["@dbfg/vscode@workspace:packages/vscode"],
 
     "@dprint/formatter": ["@dprint/formatter@0.3.0", "", {}, "sha512-N9fxCxbaBOrDkteSOzaCqwWjso5iAe+WJPsHC021JfHNj2ThInPNEF13ORDKta3llq5D1TlclODCvOvipH7bWQ=="],
 
@@ -613,8 +615,6 @@
     "css-what": ["css-what@6.1.0", "", {}, "sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw=="],
 
     "cssesc": ["cssesc@3.0.0", "", { "bin": { "cssesc": "bin/cssesc" } }, "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg=="],
-
-    "dart-barrel-file-generator": ["dart-barrel-file-generator@workspace:packages/vscode"],
 
     "dataloader": ["dataloader@1.4.0", "", {}, "sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw=="],
 
