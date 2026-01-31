@@ -151,7 +151,7 @@
     "dev": "vite build --watch",
     "package": "bun ./scripts/package.ts",
     "publish": "bun vsce publish --packagePath ./extension.vsix --skip-license --skip-duplicate",
-    "publish:cursor": "bun ovsx publish --packagePath ./ovsx.extension.vsix --skip-duplicate"
+    "publish:cursor": "bun ovsx publish --packagePath ./extension.vsix --skip-duplicate"
   },
   "dependencies": {
     "@dbfg/core": "workspace:*"
@@ -162,3 +162,4 @@
     "ovsx": "0.10.8"
   }
 }
+

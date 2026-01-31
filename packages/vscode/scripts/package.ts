@@ -24,32 +24,14 @@ const tempName = packageJson.name;
 packageJson.name = 'dart-barrel-file-generator';
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
-console.log(`${logPrefix} Packaging vscode extension...\n`);
+console.log(`${logPrefix} Packaging extension...\n`);
 execSync(
   `bun vsce package --no-dependencies --skip-license${isCi ? ' --out ./extension.vsix' : ''}`,
   { stdio: 'inherit' }
 );
 
-console.log(
-  `${logPrefix} Temporarily changing publisher to: ${pc.green('mikededo')}\n`
-);
-
-const tempPublisher = packageJson.publisher;
-packageJson.publisher = 'mikededo';
-fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-
-console.log(`${logPrefix} Packaging ovsx extension...\n`);
-execSync(
-  `bun vsce package --no-dependencies --skip-license${isCi ? ' --out ./ovsx.extension.vsix' : ''}`,
-  { stdio: 'inherit' }
-);
-
 console.log(`\n${logPrefix} Restoring ${pc.green('package.json')} name to ${pc.green(tempName)}...`);
 packageJson.name = tempName;
-fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-
-console.log(`\n${logPrefix} Restoring ${pc.green('package.json')} publisher to ${pc.green(tempPublisher)}...`);
-packageJson.publisher = tempPublisher;
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
 console.log(`${okPrefix} Done!`);
