@@ -10,6 +10,7 @@
     "email": "miquelddg@gmail.com",
     "url": "https://www.github.com/mikededo"
   },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/mikededo/dart-barrel-file-generator"
