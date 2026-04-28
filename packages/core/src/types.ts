@@ -8,22 +8,22 @@ export type RegularGenerations =
 export type Maybe<T> = T | undefined;
 
 export type GenerationConfig = {
+  appendFolderName: boolean;
   defaultBarrelName: string | undefined;
   excludeDirList: string[];
   excludeFileList: string[];
   excludeFreezed: boolean;
   excludeGenerated: boolean;
-  skipEmpty: boolean;
-  appendFolderName: boolean;
   prependFolderName: boolean;
   prependPackageToLibExport: boolean;
   promptName: boolean;
+  skipEmpty: boolean;
 };
 export type GenerationConfigKeys = keyof GenerationConfig;
 export type GenerationLogger = {
-  warn: LogFn;
   done: LogFn;
   error: LogFn;
   log: LogFn;
+  warn: LogFn;
 };
 type LogFn = (...args: string[]) => void;

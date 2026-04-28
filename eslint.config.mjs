@@ -76,12 +76,13 @@ export default antfu({
     }
   })
   .override('antfu/perfectionist/setup', {
+    files: ['**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
     rules: {
       ...(perfectionist.configs['recommended-alphabetical'].rules ?? {}),
       'perfectionist/sort-exports': [
         'error',
         {
-          groupKind: 'types-first',
+          groups: ['type-export', 'value-export'],
           ignoreCase: true,
           order: 'asc',
           type: 'alphabetical'
@@ -93,18 +94,16 @@ export default antfu({
           environment: 'bun',
           groups: [
             'style',
-            'internal-type',
-            ['parent-type', 'sibling-type', 'index-type'],
-            ['builtin', 'external'],
-            'internal',
-            ['parent', 'sibling', 'index'],
-            'object',
+            'type-internal',
+            ['type-parent', 'type-sibling', 'type-index'],
+            ['type-builtin', 'type-external', 'value-builtin', 'value-external'],
+            'value-internal',
+            ['value-parent', 'value-sibling', 'value-index'],
             'unknown'
           ],
           ignoreCase: true,
           internalPattern: ['\\@dbfg\\/+'],
-          maxLineLength: undefined,
-          newlinesBetween: 'always',
+          newlinesBetween: 1,
           order: 'asc',
           type: 'alphabetical'
         }
@@ -113,8 +112,10 @@ export default antfu({
       'perfectionist/sort-object-types': [
         'error',
         {
-          customGroups: { callbacks: 'on*' },
-          groupKind: 'required-first',
+          customGroups: [
+            { elementNamePattern: '^on.*', groupName: 'callbacks' },
+            { groupName: 'multiline', modifiers: ['multiline'] }
+          ],
           groups: ['unknown', 'callbacks', 'multiline'],
           ignoreCase: true,
           order: 'asc',

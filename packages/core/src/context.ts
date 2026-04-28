@@ -32,9 +32,9 @@ type StartParams = {
 type State = {
   fsPath: string;
   path: string;
+  promptedName?: string;
   startTimestamp?: number;
   type?: GenerationType;
-  promptedName?: string;
 };
 
 const DEFAULT_OPTIONS: CreateContextOptions['options'] = {
