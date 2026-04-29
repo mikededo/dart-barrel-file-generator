@@ -1,5 +1,14 @@
 # @dbfg/vscode
 
+## 7.6.1
+
+### Patch Changes
+
+- Upgrade related build dependencies as part of the CLI build fix. ([#150](https://github.com/mikededo/dart-barrel-file-generator/pull/150))
+
+- Updated dependencies [[`4146c60`](https://github.com/mikededo/dart-barrel-file-generator/commit/4146c60e6ff2a4506cf4689110b032df7e438457)]:
+  - @dbfg/core@3.2.1
+
 ## 7.6.0
 
 ### Minor Changes

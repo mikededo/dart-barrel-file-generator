@@ -1,5 +1,12 @@
 # @dbfg/cli
 
+## 1.4.1
+
+### Patch Changes
+
+- Simplify the CLI build to rely only on Vite and remove the failing externalization plugin from the build pipeline. ([#150](https://github.com/mikededo/dart-barrel-file-generator/pull/150))
+  Upgrade related build dependencies as part of the CLI build fix.
+
 ## 1.4.0
 
 ### Minor Changes
