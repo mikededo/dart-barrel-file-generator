@@ -1,5 +1,4 @@
 import { resolve } from 'node:path';
-import { nodeExternals } from 'rollup-plugin-node-externals';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -14,9 +13,6 @@ export default defineConfig({
     ssr: true,
     target: 'node20'
   },
-  plugins: [
-    nodeExternals({ exclude: ['@dbfg/core'] })
-  ],
   resolve: {
     alias: {
       '@dbfg/core': resolve(__dirname, '../core/src')
