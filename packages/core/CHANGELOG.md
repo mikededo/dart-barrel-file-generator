@@ -1,5 +1,11 @@
 # @dbfg/core
 
+## 3.2.1
+
+### Patch Changes
+
+- Upgrade related build dependencies as part of the CLI build fix. ([#150](https://github.com/mikededo/dart-barrel-file-generator/pull/150))
+
 ## 3.2.0
 
 ### Minor Changes
